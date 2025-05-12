@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas - Cruz de Chalpón</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/ventas.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo-area" id="logo-toggle">
+                <img src="images/logo.png" alt="Logo Cruz de Chalpón">
+                <span>Cruz de Chalpón</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html"><img src="icons/home.png" alt="Inicio"> <span>Inicio</span></a></li>
+                    <li class="active"><a href="ventas.html"><img src="icons/ventas.png" alt="Ventas"> <span>Ventas</span></a></li>
+                    <li><a href="funcionamiento.html"><img src="icons/funcionamiento.png" alt="Funcionamiento"> <span>Funcionamiento</span></a></li>
+                    <li><a href="gestion_pagos.html"><img src="icons/gestion_pagos.png" alt="Gestión de Pagos Personal"> <span>Gestión de Pagos Personal</span></a></li>
+                    <li><a href="gestion_productos.html"><img src="icons/gestion_producto.png" alt="Gestión de Producto"> <span>Gestión de Producto</span></a></li>
+                    <li><a href="almacen.html"><img src="icons/gestion_almacen.png" alt="Gestión de Almacén"> <span>Gestión de Almacén</span></a></li>
+                    <li><a href="proveedores.html"><img src="icons/proveedor.png" alt="Proveedor"> <span>Proveedor</span></a></li>
+                    <li><a href="devoluciones.html"><img src="icons/devolucion.png" alt="Devolución de Producto"> <span>Devolución de Producto</span></a></li>
+                    <li><a href="usuarios.html"><img src="icons/usuarios.png" alt="Usuarios"> <span>Usuarios</span></a></li>
+                </ul>
+            </nav>
+            <div class="logout-area">
+                <a href="index.html"><img src="icons/logout.png" alt="Cerrar sesión"> <span>Cerrar sesión</span></a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Ventas</h1>
+                <div class="header-actions">
+                    <div class="user-dropdown">
+                        <div class="user-info" id="user-toggle">
+                            <img src="icons/user.png" alt="Usuario">
+                            <span>Marianela</span>
+                        </div>
+                        <div class="dropdown-content" id="user-dropdown-menu">
+                            <a href="index.html"><img src="icons/logoutop.png" alt="Cerrar sesión"> Cerrar sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="content-area ventas-content">
+                <div class="sales-header">
+                    <div class="total-sale">
+                        <span>S/.</span>
+                        <span class="total-amount">0.00</span>
+                    </div>
+                    <div class="search-bar">
+                        <img src="icons/barras.png" alt="Buscar">
+                        <input type="text" id="product-search" placeholder="Busque un producto aquí...">
+                        <div id="search-results" class="search-results">
+                            </div>
+                    </div>
+                </div>
+                <div class="sales-table-container">
+                    <table class="sales-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Producto</th>
+                                <th>Cat.</th>
+                                <th>Cant.</th>
+                                <th>Precio</th>
+                                <th>Descuento</th>
+                                <th>Importe</th>
+                                <th>Vence</th>
+                                <th>Quitar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sales-table-body">
+                            </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6" style="text-align: right;">SUMA</td>
+                                <td id="suma">0.00</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" style="text-align: right;">IGV %</td>
+                                <td id="igv">0.00</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" style="text-align: right;">SUBTOTAL</td>
+                                <td id="subtotal">0.00</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" style="text-align: right;">DESCUENTO</td>
+                                <td id="descuento-total">0.00</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td colspan="6" style="text-align: right;">TOTAL</td>
+                                <td id="total-final">0.00</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="sales-actions" id="sales-final-actions" style="display: none;">
+                    <button class="finalize-sale-button cobrar-button">Cobrar</button>
+                    <button class="cancel-sale-button">Cancelar</button>
+                </div>
+                <div id="cobrar-modal" class="modal">
+                    <div class="modal-content cobrar-modal-content">
+                        <h2>Seleccione comprobante de Venta</h2>
+                        <div class="form-group">
+                            <label for="comprobante">Comprobante</label>
+                            <select id="comprobante">
+                                <option value="BOLETA">BOLETA</option>
+                                <option value="FACTURA">FACTURA</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="a-pagar">A Pagar</label>
+                            <input type="number" id="a-pagar" value="0.00" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="efectivo-recibido">Efectivo Recibido</label>
+                            <input type="number" id="efectivo-recibido" value="0.00">
+                        </div>
+                        <div class="form-group">
+                            <label for="cambio">Cambio</label>
+                            <input type="number" id="cambio" value="0.00" readonly>
+                        </div>
+                        <div class="modal-actions">
+                            <button id="cerrar-cobrar-modal" class="cancel-sale-button">Cerrar</button>
+                            <button id="facturar-imprimir" class="finalize-sale-button cobrar-button">Facturar e Imprimir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/ventas.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+/* Estilos específicos para la página de funcionamiento */
+/*body {
+    font-family: sans-serif;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url('../images/tienda.jpeg');
+}
+*/
+.funcionamiento-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.license-verification {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.license-verification h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#verificar-licencia-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+#verificar-licencia-button:hover {
+    background-color: #0056b3;
+}
+
+.license-status button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    cursor: default; /* Indica que no es interactivo (solo informativo) */
+    margin-bottom: 20px;
+}
+
+.vigente-button {
+    background-color: #28a745; /* Verde para vigente */
+    color: white;
+}
+
+.no-vigente-button {
+    background-color: #dc3545; /* Rojo para no vigente */
+    color: white;
+}
+
+.upload-license-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.upload-license-section h3 {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+#new-license-file {
+    margin-bottom: 10px;
+}
+
+#upload-license-button {
+    background-color: #ff9100; /* Naranja similar al tema */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#upload-license-button:hover {
+    background-color: #e08d45;
+}
+
+#upload-status {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.license-details {
+    /* Estilos para mostrar más detalles de la licencia si es necesario */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    text-align: left;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Asistencia - Cruz de Chalpón</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/asistencia.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo-area" id="logo-toggle">
+                <img src="images/logo.png" alt="Logo Cruz de Chalpón">
+                <span>Cruz de Chalpón</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html"><img src="icons/home.png" alt="Inicio"> <span>Inicio</span></a></li>
+                    <li><a href="ventas.html"><img src="icons/ventas.png" alt="Ventas"> <span>Ventas</span></a></li>
+                    <li><a href="funcionamiento.html"><img src="icons/funcionamiento.png" alt="Funcionamiento"> <span>Funcionamiento</span></a></li>
+                    <li><a href="gestion_pagos.html"><img src="icons/gestion_pagos.png" alt="Gestión de Pagos Personal"> <span>Gestión de Pagos Personal</span></a></li>
+                    <li><a href="gestion_productos.html"><img src="icons/gestion_producto.png" alt="Gestión de Producto"> <span>Gestión de Producto</span></a></li>
+                    <li><a href="almacen.html"><img src="icons/gestion_almacen.png" alt="Gestión de Almacén"> <span>Gestión de Almacén</span></a></li>
+                    <li><a href="proveedores.html"><img src="icons/proveedor.png" alt="Proveedor"> <span>Proveedor</span></a></li>
+                    <li><a href="devoluciones.html"><img src="icons/devolucion.png" alt="Devolución de Producto"> <span>Devolución de Producto</span></a></li>
+                    <li><a href="usuarios.html"><img src="icons/usuarios.png" alt="Usuarios"> <span>Usuarios</span></a></li>
+                </ul>
+            </nav>
+            <div class="logout-area">
+                <a href="index.html"><img src="icons/logout.png" alt="Cerrar sesión"> <span>Cerrar sesión</span></a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Registro de Asistencia</h1>
+                <div class="header-actions">
+                    <div class="user-dropdown">
+                        <div class="user-info" id="user-toggle">
+                            <img src="icons/user.png" alt="Usuario">
+                            <span>Marianela</span>
+                        </div>
+                        <div class="dropdown-content" id="user-dropdown-menu">
+                            <a href="index.html"><img src="icons/logoutop.png" alt="Cerrar sesión"> Cerrar sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="content-area asistencia-content">
+                <div class="assistance-card">
+                    <h2>Información del Colaborador</h2>
+                    <div class="collaborator-info">
+                        <div class="info-item">
+                            <span class="label">CODIGO DE COLABORADOR</span>
+                            <span class="value">18</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">USUARIO</span>
+                            <span class="value">mfrriast</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">APELLIDOS Y NOMBRES</span>
+                            <span class="value">Frias Torres Marianela</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">CARGO</span>
+                            <span class="value">Administrador</span>
+                        </div>
+                    </div>
+                    <div class="assistance-actions">
+                        <div class="date-time">
+                            <div class="date">
+                                <img src="icons/calendar.png" alt="Fecha">
+                                <span id="current-date"></span>
+                            </div>
+                            <div class="time">
+                                <img src="icons/clock.png" alt="Hora">
+                                <span id="current-time"></span>
+                            </div>
+                        </div>
+                        <button class="mark-assistance-button">MARCAR ASISTENCIA</button>
+                    </div>
+                </div>
+            </div>
+            <div id="assistance-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-icon">
+                        <img src="icons/exclamation.png" alt="Asistencia Registrada">
+                    </div>
+                    <p class="modal-message">ASISTENCIA REGISTRADA</p>
+                    <button id="close-modal-button" class="close-button">Cerrar</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/asistencia.js"></script>
+</body>
+</html>

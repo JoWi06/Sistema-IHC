@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Proveedores - Cruz de Chalpón</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/proveedores.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo-area" id="logo-toggle">
+                <img src="images/logo.png" alt="Logo Cruz de Chalpón">
+                <span>Cruz de Chalpón</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html"><img src="icons/home.png" alt="Inicio"> <span>Inicio</span></a></li>
+                    <li><a href="ventas.html"><img src="icons/ventas.png" alt="Ventas"> <span>Ventas</span></a></li>
+                    <li><a href="funcionamiento.html"><img src="icons/funcionamiento.png" alt="Funcionamiento"> <span>Funcionamiento</span></a></li>
+                    <li><a href="gestion_pagos.html"><img src="icons/gestion_pagos.png" alt="Gestión de Pagos Personal"> <span>Gestión de Pagos Personal</span></a></li>
+                    <li><a href="gestion_productos.html"><img src="icons/gestion_producto.png" alt="Gestión de Producto"> <span>Gestión de Producto</span></a></li>
+                    <li><a href="almacen.html"><img src="icons/gestion_almacen.png" alt="Gestión de Almacén"> <span>Gestión de Almacén</span></a></li>
+                    <li class="active"><a href="proveedores.html"><img src="icons/proveedor.png" alt="Proveedor"> <span>Proveedor</span></a></li>
+                    <li><a href="devoluciones.html"><img src="icons/devolucion.png" alt="Devolución de Producto"> <span>Devolución de Producto</span></a></li>
+                    <li><a href="usuarios.html"><img src="icons/usuarios.png" alt="Usuarios"> <span>Usuarios</span></a></li>
+                </ul>
+            </nav>
+            <div class="logout-area">
+                <a href="index.html"><img src="icons/logout.png" alt="Cerrar sesión"> <span>Cerrar sesión</span></a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Proveedores</h1>
+                <div class="header-actions">
+                    <button class="button agregar-button" id="agregar-proveedor-btn"><i class="fa-solid fa-plus"></i> Agregar Proveedor</button>
+                    <div class="user-dropdown">
+                        <div class="user-info" id="user-toggle">
+                            <img src="icons/user.png" alt="Usuario">
+                            <span>Marianela</span>
+                        </div>
+                        <div class="dropdown-content" id="user-dropdown-menu">
+                            <a href="index.html"><img src="icons/logoutop.png" alt="Cerrar sesión"> Cerrar sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="content-area proveedores-content">
+                <table class="proveedores-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Contacto</th>
+                            <th>Teléfono</th>
+                            <th>Email</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="proveedores-table-body">
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="modal" id="agregar-editar-modal">
+                <div class="modal-content">
+                    <span class="close-button" id="cerrar-modal">&times;</span>
+                    <h2 id="modal-titulo">Agregar Proveedor</h2>
+                    <form id="proveedor-form">
+                        <input type="hidden" id="proveedor-id">
+                        <div class="form-group">
+                            <label for="nombre"><i class="fa-solid fa-user"></i> Nombre *</label>
+                            <input type="text" id="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contacto"><i class="fa-solid fa-id-card"></i> Contacto</label>
+                            <input type="text" id="contacto">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono"><i class="fa-solid fa-phone"></i> Teléfono</label>
+                            <input type="tel" id="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
+                            <input type="email" id="email">
+                        </div>
+                        <button type="submit" class="button guardar-button"><i class="fa-solid fa-save"></i> Guardar</button>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="js/proveedores.js"></script>
+</body>
+</html>

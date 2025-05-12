@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Almacén - Cruz de Chalpón</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/almacen.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="js/script.js"></script>
+     <script>
+    (function(d){
+      var s = d.createElement("script");
+      s.setAttribute("data-account", "abc1234567890"); // ← tu ID real aquí
+      s.setAttribute("src", "https://cdn.userway.org/widget.js");
+      (d.body || d.head).appendChild(s);
+    })(document);
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo-area" id="logo-toggle">
+                <img src="images/logo.png" alt="Logo Cruz de Chalpón">
+                <span>Cruz de Chalpón</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html"><img src="icons/home.png" alt="Inicio"> <span>Inicio</span></a></li>
+                    <li><a href="ventas.html"><img src="icons/ventas.png" alt="Ventas"> <span>Ventas</span></a></li>
+                    <li><a href="funcionamiento.html"><img src="icons/funcionamiento.png" alt="Funcionamiento"> <span>Funcionamiento</span></a></li>
+                    <li><a href="gestion_pagos.html"><img src="icons/gestion_pagos.png" alt="Gestión de Pagos Personal"> <span>Gestión de Pagos Personal</span></a></li>
+                    <li><a href="gestion_productos.html"><img src="icons/gestion_producto.png" alt="Gestión de Producto"> <span>Gestión de Producto</span></a></li>
+                    <li class="active"><a href="almacen.html"><img src="icons/gestion_almacen.png" alt="Gestión de Almacén"> <span>Gestión de Almacén</span></a></li>
+                    <li><a href="proveedores.html"><img src="icons/proveedor.png" alt="Proveedor"> <span>Proveedor</span></a></li>
+                    <li><a href="devoluciones.html"><img src="icons/devolucion.png" alt="Devolución de Producto"> <span>Devolución de Producto</span></a></li>
+                    <li><a href="usuarios.html"><img src="icons/usuarios.png" alt="Usuarios"> <span>Usuarios</span></a></li>
+                </ul>
+            </nav>
+            <div class="logout-area">
+                <a href="index.html"><img src="icons/logout.png" alt="Cerrar sesión"> <span>Cerrar sesión</span></a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Almacén</h1>
+                <div class="header-actions">
+                    <button class="button agregar-button" id="agregar-producto-btn"><i class="fa-solid fa-plus"></i> Agregar Nuevo/a</button>
+                    <div class="opciones-dropdown">
+                        <button class="button opciones-button"><i class="fa-solid fa-bars"></i> Opciones</button>
+                        <div class="dropdown-content">
+                            <a href="#" id="imprimir-reporte"><i class="fa-solid fa-print"></i> Imprimir Reporte</a>
+                        </div>
+                    </div>
+                    <div class="user-dropdown">
+                        <div class="user-info" id="user-toggle">
+                            <img src="icons/user.png" alt="Usuario">
+                            <span>Marianela</span>
+                        </div>
+                        <div class="dropdown-content" id="user-dropdown-menu">
+                            <a href="index.html"><img src="icons/logoutop.png" alt="Cerrar sesión"> Cerrar sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="content-area almacen-content">
+                <div class="almacen-filter">
+                    <div class="date-filter">
+                        <label for="fecha-inicio"><i class="fa-solid fa-calendar-alt"></i></label>
+                        <input type="text" id="fecha-inicio" placeholder="Fecha Inicio">
+                        <label for="fecha-fin"><i class="fa-solid fa-calendar-alt"></i></label>
+                        <input type="text" id="fecha-fin" placeholder="Fecha Fin">
+                    </div>
+                    <div class="search-bar">
+                        <i class="fa-solid fa-search"></i>
+                        <input type="text" id="buscar-producto" placeholder="Busque un producto aquí...">
+                    </div>
+                </div>
+
+                <table class="almacen-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Presentación</th>
+                            <th>Vence</th>
+                            <th>Estado</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="almacen-table-body">
+                        </tbody>
+                </table>
+            </div>
+
+            <div class="modal" id="agregar-editar-modal">
+                <div class="modal-content">
+                    <span class="close-button" id="cerrar-modal">&times;</span>
+                    <h2 id="modal-titulo">Agregar Producto</h2>
+                    <form id="producto-form">
+                        <input type="hidden" id="producto-id">
+                        <div class="form-group">
+                            <label for="nombre"><i class="fa-solid fa-box-open"></i> Producto *</label>
+                            <input type="text" id="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cantidad"><i class="fa-solid fa-sort-numeric-up"></i> Cantidad *</label>
+                            <input type="number" id="cantidad" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="presentacion"><i class="fa-solid fa-cubes"></i> Presentación *</label>
+                            <input type="text" id="presentacion" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="vencimiento"><i class="fa-solid fa-calendar"></i> Vencimiento</label>
+                            <input type="text" id="vencimiento">
+                        </div>
+                        <div class="form-group">
+                            <label for="estado"><i class="fa-solid fa-check-circle"></i> Estado *</label>
+                            <select id="estado" required>
+                                <option value="Vigente">Vigente</option>
+                                <option value="Cant. Agotada">Cant. Agotada</option>
+                                <option value="Agotado">Agotado</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="button guardar-button"><i class="fa-solid fa-save"></i> Guardar</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal" id="detalle-modal">
+                <div class="modal-content">
+                    <span class="close-button" id="cerrar-detalle-modal">&times;</span>
+                    <h2>Detalle del Producto</h2>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-box-open"></i> Producto:</label>
+                        <span id="detalle-nombre"></span>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-sort-numeric-up"></i> Cantidad:</label>
+                        <span id="detalle-cantidad"></span>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-cubes"></i> Presentación:</label>
+                        <span id="detalle-presentacion"></span>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-calendar"></i> Vencimiento:</label>
+                        <span id="detalle-vencimiento"></span>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-check-circle"></i> Estado:</label>
+                        <span id="detalle-estado" class="estado-label"></span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="js/almacen.js"></script>
+</body>
+</html>

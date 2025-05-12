@@ -1,0 +1,206 @@
+/* Estilos específicos para la página de devolución de productos */
+.devoluciones-content {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas para el formulario y la lista en pantallas medianas y grandes */
+    gap: 20px;
+}
+
+.devolucion-form-container,
+.devoluciones-list-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.devolucion-form-container h2,
+.devoluciones-list-container h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center; /* Centrar los títulos */
+}
+
+.devolucion-form-container .form-group {
+    margin-bottom: 15px;
+}
+
+.devolucion-form-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9em; /* Reducir un poco el tamaño de la etiqueta */
+}
+
+.devolucion-form-container .form-group label i {
+    margin-right: 5px;
+}
+
+.devolucion-form-container .form-group input[type="text"],
+.devolucion-form-container .form-group input[type="number"],
+.devolucion-form-container .form-group textarea,
+.devolucion-form-container .form-group input[type="file"] {
+    width: calc(100% - 16px); /* Ajustar ancho considerando el padding */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.devolucion-form-container .form-group textarea {
+    resize: vertical;
+    min-height: 80px; /* Asegurar una altura mínima para el textarea */
+}
+
+.devolucion-form-container .button.registrar-button {
+    background-color: #007bff; /* Azul para registrar */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: 100%; /* El botón ocupa todo el ancho en pantallas pequeñas */
+    box-sizing: border-box;
+}
+
+.devolucion-form-container .button.registrar-button:hover {
+    background-color: #0056b3;
+}
+
+.devoluciones-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em; /* Reducir el tamaño de la fuente en la tabla */
+}
+
+.devoluciones-table th,
+.devoluciones-table td {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.devoluciones-table th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+}
+
+.devoluciones-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Estilos para la evidencia (opcional) */
+.devoluciones-table td.evidencia-col a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.devoluciones-table td.evidencia-col a:hover {
+    text-decoration: underline;
+}
+
+/* Media Query para pantallas medianas (max-width: 992px) - Tablets */
+@media (max-width: 992px) {
+    .devoluciones-content {
+        grid-template-columns: 1fr; /* Una sola columna para formulario y lista */
+    }
+
+    .devolucion-form-container,
+    .devoluciones-list-container {
+        margin-bottom: 20px; /* Añadir margen entre secciones */
+    }
+}
+
+/* Media Query para pantallas pequeñas (max-width: 768px) - Móviles */
+@media (max-width: 768px) {
+    .devoluciones-content {
+        padding: 15px; /* Reducir el padding general */
+    }
+
+    .devolucion-form-container h2,
+    .devoluciones-list-container h2 {
+        font-size: 1.3em; /* Ajustar el tamaño del título */
+        margin-bottom: 10px;
+    }
+
+    .devolucion-form-container .form-group label {
+        font-size: 0.85em;
+    }
+
+    .devolucion-form-container .form-group input[type="text"],
+    .devolucion-form-container .form-group input[type="number"],
+    .devolucion-form-container .form-group textarea,
+    .devolucion-form-container .form-group input[type="file"] {
+        font-size: 0.95em;
+        padding: 10px;
+    }
+
+    .devolucion-form-container .button.registrar-button {
+        font-size: 0.95em;
+        padding: 12px 15px;
+    }
+
+    .devoluciones-table th,
+    .devoluciones-table td {
+        padding: 6px;
+        font-size: 0.85em;
+    }
+
+    .devoluciones-table th:nth-child(5), /* Ocultar la columna de evidencia en pantallas pequeñas */
+    .devoluciones-table td:nth-child(5) {
+        display: none;
+    }
+}
+
+/* Media Query para pantallas muy pequeñas (max-width: 480px) - Móviles más pequeños */
+@media (max-width: 480px) {
+    .devolucion-form-container h2,
+    .devoluciones-list-container h2 {
+        font-size: 1.2em;
+    }
+
+    .devolucion-form-container .form-group label {
+        font-size: 0.8em;
+    }
+
+    .devolucion-form-container .form-group input[type="text"],
+    .devolucion-form-container .form-group input[type="number"],
+    .devolucion-form-container .form-group textarea,
+    .devolucion-form-container .form-group input[type="file"] {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    .devolucion-form-container .button.registrar-button {
+        font-size: 0.9em;
+        padding: 10px 12px;
+    }
+
+    .devoluciones-table th:nth-child(4), /* Ocultar la columna de motivo en pantallas muy pequeñas */
+    .devoluciones-table td:nth-child(4) {
+        display: none;
+    }
+
+    /* Ajustar el padding de la tabla para más espacio */
+    .devoluciones-table th:nth-child(6),
+    .devoluciones-table td:nth-child(6) {
+        padding: 4px;
+        font-size: 0.75em;
+        text-align: center;
+    }
+
+    .devoluciones-table th:nth-child(1), /* Ajustar el padding de la columna # */
+    .devoluciones-table td:nth-child(1),
+    .devoluciones-table th:nth-child(2), /* Ajustar el padding de la columna Producto */
+    .devoluciones-table td:nth-child(2),
+    .devoluciones-table th:nth-child(3), /* Ajustar el padding de la columna Cantidad */
+    .devoluciones-table td:nth-child(3) {
+        padding: 4px;
+        text-align: center;
+    }
+}

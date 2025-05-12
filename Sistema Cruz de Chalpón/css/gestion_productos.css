@@ -1,0 +1,341 @@
+/* Estilos base para la página de gestión de productos */
+.gestion-productos-content {
+    padding: 15px;
+}
+
+/* Estilos para el filtro y la tabla */
+.productos-filter {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Para que los elementos del filtro se envuelvan en pantallas pequeñas */
+    gap: 10px; /* Espacio entre los elementos del filtro */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    flex-grow: 1; /* El buscador ocupa más espacio */
+    min-width: 200px; /* Ancho mínimo del buscador */
+}
+
+.search-bar i {
+    margin-right: 5px;
+    color: #777;
+}
+
+.search-bar input[type="text"] {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    font-size: 1em;
+}
+
+.filter-options {
+    display: flex;
+    align-items: center;
+}
+
+.filter-options span {
+    margin-right: 5px;
+    color: #555;
+}
+
+.filter-options select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1em;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    color: #555;
+}
+
+.pagination i {
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.pagination .page-number {
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+/* Estilos para la tabla responsive */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 20px; /* Espacio debajo de la tabla */
+}
+
+.productos-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    /* min-width: 768px; /* Ajusta según el ancho total de tus columnas */
+}
+
+.productos-table thead th {
+    background-color: #ff9100; /* Naranja del tema */
+    color: white;
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap; /* Evita que los encabezados se rompan */
+}
+
+.productos-table tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap; /* Evita que el contenido de las celdas se rompa */
+}
+
+.productos-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.productos-table .stock {
+    font-weight: bold;
+    text-align: center;
+}
+
+.productos-table .stock-label {
+    display: inline-block;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.productos-table .stock-label.en-minimo {
+    background-color: #28a745;
+}
+
+.productos-table .stock-label.por-agotado {
+    background-color: #ff9100; /* Un tono de naranja más oscuro */
+}
+
+.productos-table .stock-label.agotado {
+    background-color: red;
+}
+
+.productos-table .opciones {
+    text-align: center;
+}
+
+.productos-table .opciones i {
+    margin: 0 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #777;
+}
+
+.productos-table .opciones i:hover {
+    color: #333;
+}
+
+.header-actions .agregar-button {
+    background-color: #28a745; /* Naranja del tema */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.header-actions .imprimir-button {
+    background-color: #0056b3; /* Naranja del tema */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.header-actions .agregar-button i,
+.header-actions .imprimir-button i {
+    margin-right: 5px;
+}
+
+/* Estilos para el Modal Responsive */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Ajusta el margen según necesites */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Ajusta el ancho según necesites */
+    max-width: 400px; /* Un ancho máximo razonable para el formulario */
+    border-radius: 5px;
+    position: relative;
+    overflow-x: hidden; /* Oculta el scroll horizontal */
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos verticalmente */
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    text-align: left; /* Asegura la alineación a la izquierda de la etiqueta */
+    width: 100%; /* La etiqueta ocupa todo el ancho */
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"], /* Agregamos el tipo tel para el teléfono */
+.form-group input[type="email"],
+.form-group input[type="number"] { /* Incluimos los inputs de número también */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    width: 100%; /* El campo de entrada ocupa todo el ancho */
+}
+
+.button.guardar-button {
+    background-color: #28a745; /* Verde para guardar */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+    width: 100%; /* El botón guardar ocupa todo el ancho */
+}
+
+.button.guardar-button:hover {
+    background-color: #1e7e34;
+}
+
+/* Estilos para el Modal de Ver Producto */
+#ver-producto-modal .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 5px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+#ver-producto-modal .form-group {
+    display: flex;
+    flex-direction: column; /* Apila etiqueta y valor */
+    margin-bottom: 10px;
+}
+
+#ver-producto-modal .form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+#ver-producto-modal .form-group span {
+    display: block;
+    padding: 8px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Media query para pantallas más grandes (ejemplo: 600px de ancho en adelante) */
+@media (min-width: 600px) {
+    .modal-content {
+        max-width: 600px; /* Aumenta el ancho máximo en pantallas más grandes */
+    }
+
+    .form-group {
+        flex-direction: row; /* Vuelve a la disposición horizontal */
+        align-items: center;
+    }
+
+    .form-group label {
+        text-align: right;
+        flex-basis: 30%;
+        margin-bottom: 0;
+        margin-right: 10px;
+        width: auto;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="tel"],
+    .form-group input[type="email"],
+    .form-group input[type="number"] {
+        flex-basis: 70%;
+        width: auto;
+    }
+
+    .button.guardar-button {
+        width: auto; /* El botón se adapta al contenido */
+        align-self: center; /* Centra el botón */
+    }
+
+    #ver-producto-modal .form-group {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #ver-producto-modal .form-group label {
+        flex-basis: 40%;
+        text-align: right;
+        margin-right: 10px;
+    }
+
+    #ver-producto-modal .form-group span {
+        flex-basis: 60%;
+        text-align: left;
+    }
+}

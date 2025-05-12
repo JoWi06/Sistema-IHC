@@ -1,0 +1,288 @@
+/* Estilos específicos para la página de ventas */
+/*body {
+    font-family: sans-serif;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url('../images/tienda.jpeg');
+}*/
+
+.ventas-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sales-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.total-sale {
+    background-color: #ff9100;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.total-sale span:first-child {
+    margin-right: 5px;
+}
+
+.search-bar {
+    position: relative; /* Para posicionar los resultados de búsqueda */
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding: 8px;
+    width: 40%;
+    min-width: 300px;
+}
+
+.search-bar img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    opacity: 0.6;
+}
+
+.search-bar input[type="text"] {
+    border: none;
+    background-color: transparent;
+    padding: 8px 0;
+    font-size: 1em;
+    width: 100%;
+    outline: none;
+    color: #333;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: none; /* Oculto por defecto */
+}
+
+.search-result-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-result-item:hover {
+    background-color: #f0f0f0;
+}
+
+.sales-table-container {
+    overflow-x: auto;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sales-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.sales-table thead th {
+    background-color: #ff9100;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.sales-table tbody td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.sales-table tbody td:last-child {
+    text-align: center;
+}
+
+.sales-table tbody input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.sales-table tfoot td {
+    padding: 10px 15px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.remove-item-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.remove-item-button img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.remove-item-button img:hover {
+    opacity: 1;
+}
+
+.sales-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.finalize-sale-button,
+.cancel-sale-button {
+    background-color: #007bff; /* Azul para cobrar */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-sale-button {
+    background-color: #dc3545; /* Rojo para cancelar */
+}
+
+.finalize-sale-button:hover {
+    background-color: #0056b3;
+}
+
+.cancel-sale-button:hover {
+    background-color: #c82333;
+}
+
+/* Estilos para la ventana modal de Cobrar */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en la ventana */
+    z-index: 100; /* Sobre otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    overflow: auto; /* Habilitar scroll si es necesario */
+    background-color: rgba(0,0,0,0.4); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.cobrar-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centrar verticalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ajustar ancho según necesidad */
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.cobrar-modal-content h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+.form-group input[type="number"],
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    flex-grow: 1;
+}
+
+/* Estilos para la ventana modal de Confirmación de Impresión */
+.imprimir-confirmacion-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 350px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.imprimir-confirmacion-content h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.imprimir-confirmacion-content p {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.imprimir-confirmacion-content .modal-icon {
+    margin-bottom: 20px;
+}
+
+.imprimir-confirmacion-content .modal-icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.imprimir-confirmacion-content .modal-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.imprimir-confirmacion-content .modal-actions button {
+    flex-grow: 1;
+}

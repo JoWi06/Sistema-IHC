@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagos de Personal - Cruz de Chalpón</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/gestion_pagos.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo-area" id="logo-toggle">
+                <img src="images/logo.png" alt="Logo Cruz de Chalpón">
+                <span>Cruz de Chalpón</span>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html"><img src="icons/home.png" alt="Inicio"> <span>Inicio</span></a></li>
+                    <li><a href="ventas.html"><img src="icons/ventas.png" alt="Ventas"> <span>Ventas</span></a></li>
+                    <li><a href="funcionamiento.html"><img src="icons/funcionamiento.png" alt="Funcionamiento"> <span>Funcionamiento</span></a></li>
+                    <li class="active"><a href="gestion_pagos.html"><img src="icons/gestion_pagos.png" alt="Gestión de Pagos Personal"> <span>Gestión de Pagos Personal</span></a></li>
+                    <li><a href="gestion_productos.html"><img src="icons/gestion_producto.png" alt="Gestión de Producto"> <span>Gestión de Producto</span></a></li>
+                    <li><a href="almacen.html"><img src="icons/gestion_almacen.png" alt="Gestión de Almacén"> <span>Gestión de Almacén</span></a></li>
+                    <li><a href="proveedores.html"><img src="icons/proveedor.png" alt="Proveedor"> <span>Proveedor</span></a></li>
+                    <li><a href="devoluciones.html"><img src="icons/devolucion.png" alt="Devolución de Producto"> <span>Devolución de Producto</span></a></li>
+                    <li><a href="usuarios.html"><img src="icons/usuarios.png" alt="Usuarios"> <span>Usuarios</span></a></li>
+                </ul>
+            </nav>
+            <div class="logout-area">
+                <a href="index.html"><img src="icons/logout.png" alt="Cerrar sesión"> <span>Cerrar sesión</span></a>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Pagos de Personal</h1>
+                <div class="header-actions">
+                    <div class="user-dropdown">
+                        <div class="user-info" id="user-toggle">
+                            <img src="icons/user.png" alt="Usuario">
+                            <span>Marianela</span>
+                        </div>
+                        <div class="dropdown-content" id="user-dropdown-menu">
+                            <a href="index.html"><img src="icons/logoutop.png" alt="Cerrar sesión"> Cerrar sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="content-area pagos-personal-content">
+                <div class="payroll-section" id="payroll-section">
+                    <div class="payroll-actions">
+                        <button id="pagar-empleados-button">PAGAR</button>
+                    </div>
+                    <h2>Resumen de Pagos</h2>
+                    <table id="payroll-table">
+                        <thead>
+                            <tr>
+                                <th>Empleado</th>
+                                <th>Fecha de Ingreso</th>
+                                <th>Sueldo Base</th>
+                                <th>Asistencias</th>
+                                <th>Descuentos</th>
+                                <th>Crédito</th>
+                                <th>Sueldo a Pagar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="payroll-table-body">
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6" style="text-align: right;">TOTAL:</td>
+                                    <td id="total-payroll">0.00</td>
+                                </tr>
+                            </tfoot>
+                    </table>
+                </div>
+                <div id="payment-status" class="payment-status"></div>
+            </div>
+        </main>
+    </div>
+    <script src="js/gestion_pagos.js"></script>
+</body>
+</html>

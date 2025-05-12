@@ -1,0 +1,151 @@
+/* Estilos específicos para la página de asistencia */
+/*body {
+    font-family: sans-serif;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url('../images/tienda.jpeg');
+}
+*/
+.asistencia-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.assistance-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 80%;
+    max-width: 700px;
+}
+
+.assistance-card h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.collaborator-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-item .label {
+    color: #777;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.info-item .value {
+    color: #333;
+    font-weight: bold;
+}
+
+.assistance-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date-time {
+    display: flex;
+    gap: 20px;
+}
+
+.date-time div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #555;
+}
+
+.date-time img {
+    width: 20px;
+    height: 20px;
+}
+
+.mark-assistance-button {
+    background-color: #ff9100; /* El color naranja principal */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mark-assistance-button:hover {
+    background-color: #ff9100;
+}
+
+/* Estilos para la ventana modal */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en la ventana */
+    z-index: 1; /* Sobre otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    overflow: auto; /* Habilitar scroll si es necesario */
+    background-color: rgba(0,0,0,0.4); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centrar verticalmente */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; /* Ajustar ancho según necesidad */
+    max-width: 400px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.modal-icon {
+    margin-bottom: 20px;
+}
+
+.modal-icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.modal-message {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.close-button {
+    background-color: #ff9100;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+    background-color: #ff9100;
+}

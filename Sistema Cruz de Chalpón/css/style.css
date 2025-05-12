@@ -1,0 +1,117 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f7f5f4; /* Manteniendo el color de fondo en el body */
+}
+
+.login-container {
+    background-color: #ff9100; /* Mismo color de fondo */
+    border-radius: 10px;
+    padding: 20px; /* Reducimos el padding general */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%; /* Hacemos el contenedor más adaptable */
+    max-width: 400px; /* Establecemos un ancho máximo para pantallas grandes */
+}
+
+.logo {
+    margin-bottom: 20px;
+}
+
+.logo img {
+    max-width: 120px; /* Ajustamos un poco el tamaño del logo para pantallas más pequeñas */
+    height: auto;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%; /* El formulario ocupa todo el ancho de su contenedor */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 0.9em; /* Reducimos un poco el tamaño de la etiqueta */
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login-button {
+    background-color: #fff; /* Fondo blanco para el botón */
+    color: #ff9100; /* Texto naranja para el botón */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #e0e0e0; /* Un gris claro al pasar el ratón */
+}
+
+/* Media Query para pantallas más pequeñas (ej. tablets y móviles) */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 30px; /* Ajustamos el padding para pantallas más pequeñas */
+    }
+
+    .logo img {
+        max-width: 100px;
+    }
+
+    .input-group label {
+        font-size: 0.85em;
+    }
+
+    .input-group input[type="text"],
+    .input-group input[type="password"] {
+        font-size: 15px;
+    }
+
+    .login-button {
+        font-size: 16px;
+    }
+}
+
+/* Media Query para pantallas aún más pequeñas (ej. móviles) */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 20px; /* Reducimos aún más el padding en móviles */
+        border-radius: 0; /* Opcional: quitar los bordes redondeados en pantallas muy pequeñas */
+        width: 100%; /* El contenedor ocupa todo el ancho de la pantalla */
+        min-height: 100vh; /* Opcional: hacer que el contenedor ocupe toda la altura de la pantalla */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centrar verticalmente el contenido */
+        align-items: center;
+    }
+
+    .logo {
+        margin-bottom: 30px;
+    }
+
+    .logo img {
+        max-width: 80px;
+    }
+}
+

@@ -1,0 +1,433 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f4f4f4; /* Un gris claro de fondo */
+    display: flex;
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la pantalla */
+}
+
+.container {
+    display: flex;
+    width: 95%;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #ff9100; /* El color naranja del sidebar */
+    color: white;
+    width: 200px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: width 0.3s ease; /* Transición suave para la animación */
+    /* Evitar que el contenido se encoja demasiado */
+    flex-shrink: 0;
+}
+
+.sidebar.minimized {
+    width: 120px; /* Ancho cuando está minimizado */
+    align-items: center; /* Centrar los iconos */
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    cursor: pointer; /* Indicar que es clickeable */
+    width: 120%; /* Para que ocupe todo el ancho y sea fácil hacer clic */
+    justify-content: flex-start; /* Alineación inicial */
+}
+
+.sidebar.minimized .logo-area {
+    justify-content: center; /* Centrar el logo */
+    margin-bottom: 20px;
+}
+
+.logo-area img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.sidebar.minimized .logo-area img {
+    margin-right: 100; /* Sin margen cuando está minimizado */
+}
+
+.logo-area span {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.sidebar.minimized .logo-area span {
+    display: none; /* Ocultar el texto del logo */
+}
+
+.sidebar.minimized .logout-area span {
+    display: none; /* Ocultar el texto del logo */
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.main-nav ul li a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    justify-content: flex-start; /* Alineación inicial */
+}
+
+.sidebar.minimized .main-nav ul li a {
+    justify-content: center; /* Centrar el icono */
+    padding: 10px;
+}
+
+.main-nav ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.main-nav ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.sidebar.minimized .main-nav ul li a img {
+    margin-right: 100; /* Sin margen cuando está minimizado */
+}
+
+.main-nav ul li a span {
+    margin-left: 10px;
+}
+
+.sidebar.minimized .main-nav ul li a span {
+    display: none; /* Ocultar el texto del menú */
+}
+
+.logout-area {
+    padding-top: 20px; /* Puedes ajustar este padding si lo necesitas */
+    /* width: 100%; Eliminamos el ancho del 100% aquí */
+    display: flex; /* Añadimos flex para centrar el contenido si es necesario */
+    justify-content: center; /* Centramos el enlace horizontalmente */
+}
+
+.logout-area a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    justify-content: flex-start; /* Alineación inicial del icono y texto */
+    width: fit-content; /* El ancho se ajusta al contenido */
+}
+
+.sidebar.minimized .logout-area {
+    justify-content: center; /* Mantenemos el centrado en modo minimizado */
+}
+
+.sidebar.minimized .logout-area a {
+    justify-content: center; /* Centramos el icono en modo minimizado */
+    width: auto; /* Dejamos que el ancho se ajuste al icono */
+}
+
+.logout-area a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.logout-area a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.sidebar.minimized .logout-area a img {
+    margin-right: 100; /* Sin margen cuando está minimizado */
+}
+
+.logout-area a span {
+    margin-left: 10px;
+   
+}
+
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.main-header h1 {
+    margin: 0;
+    color: #333;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.assistencia-button {
+    background-color: #ff9100; /* Un gris claro para el botón */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Para que el ancho se ajuste al contenido */
+    text-decoration: none; /* Asegúrate de tener esto aquí */
+}
+
+.assistencia-button:hover {
+    background-color: #ccc;
+}
+
+/* Estilos para el dropdown de usuario */
+.user-dropdown {
+    position: relative;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.user-info:hover {
+    background-color: #f0f0f0;
+}
+
+.user-info img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ccc; /* Placeholder for user icon background */
+}
+
+.user-info span {
+    color: #555;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: none; /* Oculto por defecto */
+    min-width: 150px;
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-content a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.content-area {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow: auto; /* Para manejar contenido largo */
+    height: auto;
+    display: block;
+}
+
+.store-image {
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px; /* Centrar la imagen */
+    border-radius: 5px;
+}
+
+/* Media Queries para hacerlo responsivo */
+
+/* Para pantallas más pequeñas (como tablets en orientación horizontal y algunos laptops pequeños) */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 80px; /* Sidebar minimizado por defecto en pantallas medianas */
+        justify-content: flex-start; /* Volvemos a la alineación inicial */
+    }
+
+    .sidebar.minimized {
+        width: 250px; /* Se expande si se aplica la clase 'minimized' */
+        justify-content: space-between; /* Mantenemos el space-between cuando se expande */
+    }
+
+    .sidebar .logo-area span,
+    .sidebar .main-nav ul li a span,
+    .sidebar .logout-area a span {
+        display: none; /* Ocultar texto por defecto */
+    }
+
+    .sidebar.sidebar.minimized .logo-area span,
+    .sidebar.sidebar.minimized .main-nav ul li a span,
+    .sidebar.sidebar.minimized .logout-area a span {
+        display: flex; /* Ocultar texto por defecto */
+    }
+
+    .sidebar .logo-area {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .sidebar .main-nav ul li a {
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .sidebar .logout-area a {
+        justify-content: center;
+        padding: 10px;
+    }
+}
+
+/* Para pantallas de celular */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Apilar la sidebar encima del contenido */
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row; /* Mostrar elementos en fila */
+        align-items: center;
+        justify-content: space-around; /* Espacio entre los elementos */
+        padding: 10px;
+        position: fixed; /* Barra de navegación fija en la parte inferior o superior */
+        bottom: 0; /* Fijo en la parte inferior */
+        z-index: 100; /* Asegurar que esté encima del contenido */
+    }
+
+    .sidebar.minimized {
+        width: 100%; /* Mantener el ancho completo */
+    }
+    
+    .main-nav ul {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .main-nav ul li {
+        margin-bottom: 0; /* Eliminar margen inferior */
+    }
+
+    .main-nav ul li a {
+        flex-direction: column; /* Icono arriba, texto abajo */
+        align-items: center;
+        padding: 8px 10px;
+        margin-bottom: 0;
+    }
+
+    .main-nav ul li a img {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .main-nav ul li a span {
+        display: block; /* Mostrar el texto en la navegación móvil */
+        margin-left: 0;
+        font-size: 0.8em; /* Reducir el tamaño del texto */
+    }
+
+    .logout-area {
+        /* Espacio para la barra de navegación fija */
+        display: flex;
+        width: 100%;
+        justify-content: center; /* Centramos el icono de cerrar sesión */
+        align-items: center; /* Alineamos verticalmente al centro */
+        margin-bottom: 0; /* Eliminar margen inferior */
+        padding: 8px 10px;
+    }
+
+    .logout-area a {
+        flex-direction: column; /* Icono arriba, texto abajo */
+        align-items: center;
+    }
+
+    .logout-area a img {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .logout-area a span {
+        display: block;  /*Mostrar el texto */
+        margin-left: 0;
+        font-size: 0.8em;
+    }
+
+    .main-content {
+        padding-bottom: 60px; /* Espacio para la barra de navegación fija */
+    }
+
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-actions {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* Opcional: Para pantallas aún más pequeñas (algunos celulares en modo muy estrecho) */
+@media (max-width: 576px) {
+    .header-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .assistencia-button,
+    .user-dropdown {
+        width: 100%;
+    }
+}
